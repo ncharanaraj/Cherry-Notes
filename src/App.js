@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
+import TodoList from "./components/TodoList";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -72,26 +73,12 @@ const App = () => {
         value={inputTask}
       />
       <button onClick={handleCreateTask}>Create</button>
-      {handleFilter().length > 0 ? (
-        handleFilter().map(
-          (
-            task,
-            index //conditional rendering
-          ) => (
-            <div key={index}>
-              <input
-                type="checkbox"
-                onChange={() => handleIscompletedTask(task.id)}
-                checked={task.isCompleted}
-              />
-              <span>{task.input}</span>
-              <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
-            </div>
-          )
-        )
-      ) : (
-        <p>Northing to show. Create a new task</p>
-      )}
+
+      <TodoList
+        handleFilter={handleFilter}
+        handleDeleteTask={handleDeleteTask}
+        handleIscompletedTask={handleIscompletedTask}
+      />
 
       <Footer
         getActiveTasks={getActiveTasks}
