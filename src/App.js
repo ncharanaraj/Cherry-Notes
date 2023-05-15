@@ -32,12 +32,21 @@ const App = () => {
         value={inputTask}
       />
       <button onClick={handleCreateClick}>Create</button>
-      {tasks.map((task, index) => (
-        <div key={index}>
-          <span>{task}</span>
-          <button onClick={() => handleDeleteClick(task)}>Delete</button>
-        </div>
-      ))}
+      {tasks.length > 0 ? (
+        tasks.map(
+          (
+            task,
+            index //conditional rendering
+          ) => (
+            <div key={index}>
+              <span>{task}</span>
+              <button onClick={() => handleDeleteClick(task)}>Delete</button>
+            </div>
+          )
+        )
+      ) : (
+        <p>Northing to show. Create a new task</p>
+      )}
     </Fragment>
   );
 };
