@@ -58,6 +58,11 @@ const App = () => {
     setTasks(activeTasks);
   };
 
+  // count the active tasks
+  const getActiveTasks = () => {
+    return tasks.filter((task) => !task.isCompleted).length;
+  };
+
   return (
     <Fragment>
       <input
@@ -88,6 +93,7 @@ const App = () => {
       )}
 
       <div>
+        <span>{getActiveTasks()} remaining active tasks</span>
         <button onClick={() => setFilter("All")}>All</button>
         <button onClick={() => setFilter("Active")}>Active</button>
         <button onClick={() => setFilter("Completed")}>Completed</button>
