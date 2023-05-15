@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import "./App.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -92,13 +93,11 @@ const App = () => {
         <p>Northing to show. Create a new task</p>
       )}
 
-      <div>
-        <span>{getActiveTasks()} remaining active tasks</span>
-        <button onClick={() => setFilter("All")}>All</button>
-        <button onClick={() => setFilter("Active")}>Active</button>
-        <button onClick={() => setFilter("Completed")}>Completed</button>
-        <button onClick={clearAllCompletedTasks}>Clear All</button>
-      </div>
+      <Footer
+        getActiveTasks={getActiveTasks}
+        setFilter={setFilter}
+        clearAllCompletedTasks={clearAllCompletedTasks}
+      />
     </Fragment>
   );
 };
