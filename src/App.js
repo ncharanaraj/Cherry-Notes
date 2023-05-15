@@ -16,6 +16,14 @@ const App = () => {
     setInputTask(""); //resetting the input
   };
 
+  // Deleting an item in the tasks
+  const handleDeleteClick = (deletingTask) => {
+    const remainingTasks = tasks.filter(
+      (allTasks) => allTasks !== deletingTask
+    );
+    setTasks(remainingTasks);
+  };
+
   return (
     <Fragment>
       <input
@@ -25,7 +33,10 @@ const App = () => {
       />
       <button onClick={handleCreateClick}>Create</button>
       {tasks.map((task, index) => (
-        <p key={index}>{task}</p>
+        <div key={index}>
+          <span>{task}</span>
+          <button onClick={() => handleDeleteClick(task)}>Delete</button>
+        </div>
       ))}
     </Fragment>
   );
