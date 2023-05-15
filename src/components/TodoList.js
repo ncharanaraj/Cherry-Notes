@@ -6,7 +6,7 @@ const TodoList = ({
   handleIscompletedTask,
 }) => {
   return (
-    <div>
+    <>
       {handleFilter().length > 0 ? (
         handleFilter().map(
           (
@@ -23,7 +23,7 @@ const TodoList = ({
       ) : (
         <p>Northing to show. Create a new task</p>
       )}
-    </div>
+    </>
   );
 };
 

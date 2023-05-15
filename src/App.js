@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import TodoList from "./components/TodoList";
+import InputTask from "./components/InputTask";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -67,12 +68,11 @@ const App = () => {
 
   return (
     <Fragment>
-      <input
-        type="text"
-        onChange={(e) => setInputTask(e.target.value)}
-        value={inputTask}
+      <InputTask
+        inputTask={inputTask}
+        setInputTask={setInputTask}
+        handleCreateTask={handleCreateTask}
       />
-      <button onClick={handleCreateTask}>Create</button>
 
       <TodoList
         handleFilter={handleFilter}
