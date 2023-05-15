@@ -4,6 +4,7 @@ import "./App.css";
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [inputTask, setInputTask] = useState("");
+  const [filter, setFilter] = useState("all");
 
   const handleCreateTask = () => {
     setTasks([
@@ -40,6 +41,17 @@ const App = () => {
     console.log(JSON.stringify(pendingTasks));
   };
 
+  // Filter the items based on the state.
+  const handleFilter = () => {
+    if (filter === "Active") {
+      return tasks.filter((task) => task.isCompleted === false);
+    } else if (filter === "Completed") {
+      return tasks.filter((task) => task.isCompleted === true);
+    } else {
+      return tasks;
+    }
+  };
+
   return (
     <Fragment>
       <input
@@ -48,8 +60,8 @@ const App = () => {
         value={inputTask}
       />
       <button onClick={handleCreateTask}>Create</button>
-      {tasks.length > 0 ? (
-        tasks.map(
+      {handleFilter().length > 0 ? (
+        handleFilter().map(
           (
             task,
             index //conditional rendering
@@ -58,7 +70,7 @@ const App = () => {
               <input
                 type="checkbox"
                 onChange={() => handleIscompletedTask(task.id)}
-                value={task.isCompleted}
+                checked={task.isCompleted}
               />
               <span>{task.input}</span>
               <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
@@ -68,6 +80,12 @@ const App = () => {
       ) : (
         <p>Northing to show. Create a new task</p>
       )}
+
+      <div>
+        <button onClick={() => setFilter("All")}>All</button>
+        <button onClick={() => setFilter("Active")}>Active</button>
+        <button onClick={() => setFilter("Completed")}>Completed</button>
+      </div>
     </Fragment>
   );
 };
