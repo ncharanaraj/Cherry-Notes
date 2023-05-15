@@ -52,6 +52,12 @@ const App = () => {
     }
   };
 
+  // ClearAll the completed the tasks
+  const clearAllCompletedTasks = () => {
+    const activeTasks = tasks.filter((task) => !task.isCompleted);
+    setTasks(activeTasks);
+  };
+
   return (
     <Fragment>
       <input
@@ -85,6 +91,7 @@ const App = () => {
         <button onClick={() => setFilter("All")}>All</button>
         <button onClick={() => setFilter("Active")}>Active</button>
         <button onClick={() => setFilter("Completed")}>Completed</button>
+        <button onClick={clearAllCompletedTasks}>Clear All</button>
       </div>
     </Fragment>
   );
