@@ -1,0 +1,10 @@
+.task-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-input > input {
+  border: none;
+  border-block-end: 1px solid gray;
+  border-radius: 0;
+}

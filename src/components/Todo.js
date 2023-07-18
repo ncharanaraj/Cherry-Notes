@@ -1,13 +1,22 @@
+import "./todo.css";
+
 const Todo = ({ task, handleIscompletedTask, handleDeleteTask }) => {
   return (
-    <div>
-      <input
-        type="checkbox"
-        onChange={() => handleIscompletedTask(task.id)}
-        checked={task.isCompleted}
-      />
-      <span>{task.input}</span>
-      <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
+    <div className="todo-list-items">
+      <label>
+        <input
+          type="checkbox"
+          onChange={() => handleIscompletedTask(task.id)}
+          checked={task.isCompleted}
+        />
+        {task.input}
+      </label>
+      <button
+        className="todo-list-btn"
+        onClick={() => handleDeleteTask(task.id)}
+      >
+        Delete
+      </button>
     </div>
   );
 };

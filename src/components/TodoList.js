@@ -1,4 +1,5 @@
 import Todo from "./Todo";
+import "./todolist.css";
 
 const TodoList = ({
   handleFilter,
@@ -6,7 +7,7 @@ const TodoList = ({
   handleIscompletedTask,
 }) => {
   return (
-    <>
+    <div className="todo-list">
       {handleFilter().length > 0 ? (
         handleFilter().map(
           (
@@ -21,9 +22,9 @@ const TodoList = ({
           )
         )
       ) : (
-        <p>Northing to show. Create a new task</p>
+        <p>Northing to show.</p>
       )}
-    </>
+    </div>
   );
 };
 

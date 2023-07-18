@@ -1,0 +1,8 @@
+.footer-text {
+  font-weight: var(--fontweight-700);
+}
+
+.footer-btns {
+  display: flex;
+  gap: 0.5rem;
+}

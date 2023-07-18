@@ -1,0 +1,22 @@
+.todo-list-items {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-block: 0.5rem;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-inline-end: 0.5rem;
+  cursor: pointer;
+}
+
+.todo-list-btn {
+  padding: 0.25rem 0.5rem;
+  color: red;
+  background-color: aliceblue;
+  cursor: pointer;
+}

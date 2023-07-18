@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import TodoList from "./components/TodoList";
@@ -67,25 +67,34 @@ const App = () => {
   };
 
   return (
-    <Fragment>
-      <InputTask
-        inputTask={inputTask}
-        setInputTask={setInputTask}
-        handleCreateTask={handleCreateTask}
-      />
+    <div className="app-container">
+      <header>
+        <h1>Cherry Notes</h1>
+        <p>A productity app to manage tasks at ease.</p>
+      </header>
 
-      <TodoList
-        handleFilter={handleFilter}
-        handleDeleteTask={handleDeleteTask}
-        handleIscompletedTask={handleIscompletedTask}
-      />
+      <main>
+        <InputTask
+          inputTask={inputTask}
+          setInputTask={setInputTask}
+          handleCreateTask={handleCreateTask}
+        />
 
-      <Footer
-        getActiveTasks={getActiveTasks}
-        setFilter={setFilter}
-        clearAllCompletedTasks={clearAllCompletedTasks}
-      />
-    </Fragment>
+        <TodoList
+          handleFilter={handleFilter}
+          handleDeleteTask={handleDeleteTask}
+          handleIscompletedTask={handleIscompletedTask}
+        />
+      </main>
+
+      <footer>
+        <Footer
+          getActiveTasks={getActiveTasks}
+          setFilter={setFilter}
+          clearAllCompletedTasks={clearAllCompletedTasks}
+        />
+      </footer>
+    </div>
   );
 };
 
